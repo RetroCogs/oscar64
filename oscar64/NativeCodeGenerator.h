@@ -563,6 +563,8 @@ public:
 	bool ShortcutCrossBlockMoves(NativeCodeProcedure* proc);
 	bool ShortcutCrossBlockCondition(void);
 
+	bool MergeDuplicateCondition(void);
+
 	bool CanReplaceYRegWithXReg(int start, int end);
 	bool CanReplaceXRegWithYReg(int start, int end);
 
@@ -624,6 +626,7 @@ public:
 	bool ReduceIndexXYZeroShuffle(NativeCodeBasicBlock* from, int xreg, int yreg);
 	bool CheckLoopIndexXRegisters(NativeCodeBasicBlock* head, int xreg);
 	bool CheckLoopIndexYRegisters(NativeCodeBasicBlock* head, int yreg);
+	bool AbsoluteLocalRegisterValueReuse(void);
 
 	void MarkLocalUsedLinkerObjects(void);
 	bool RemoveLocalUnusedLinkerObjects(void);
@@ -911,6 +914,7 @@ public:
 	void CheckAsmCode(void);
 	void CheckVisited(void);
 
+	int mSuffixStringLength;
 	int* mSuffixString;
 	void AddToSuffixTree(NativeCodeMapper& mapper, SuffixTree * tree);
 };

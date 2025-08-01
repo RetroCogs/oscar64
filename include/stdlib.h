@@ -1,6 +1,19 @@
 #ifndef STDLIB_H
 #define STDLIB_H
 
+#define RAND_MAX	65535u
+
+struct div_t
+{
+	int quot;
+	int rem;
+};
+
+struct ldiv_t
+{
+	long int quot;
+	long int rem;
+};
 
 extern const float tpow10[7];
 
@@ -34,6 +47,9 @@ int abs(int n);
 
 long labs(long n);
 
+div_t div(int numer, int denom);
+
+ldiv_t ldiv(long int numer, long int denom);
 
 void exit(int status);
 
